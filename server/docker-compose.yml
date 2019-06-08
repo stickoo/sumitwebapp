@@ -1,0 +1,10 @@
+version: '3'
+services:
+  Server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: promserver:latest
+    container_name: promserver
+    ports:
+      - "9090:9090"

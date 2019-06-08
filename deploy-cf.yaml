@@ -1,0 +1,20 @@
+- name: provision stack
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: promserver-cluster
+    cloudformation: >
+      stack_name="promserver-cluster" state=present
+      region=eu-west-1 disable_rollback=true
+      template=cf-promserver-cluster.yaml
+    register: stack
+  - name: show stack outputs
+    debug: msg="My stack outputs are {{stack.stack_outputs}}"
+  - name: promserver-service
+    cloudformation: >
+      stack_name="promserver-service" state=present
+      region=eu-west-1 disable_rollback=true
+      template=cf-promserver-service.yaml
+    register: stack
