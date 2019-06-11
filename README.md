@@ -26,6 +26,7 @@
 
 ### Deploy Promethues Server
    ````
+   cd server
    docker-compose build
    docker tag promserver:latest 851966755265.dkr.ecr.eu-west-1.amazonaws.com/sumit:promserver
    docker push 851966755265.dkr.ecr.eu-west-1.amazonaws.com/sumit:promserver
