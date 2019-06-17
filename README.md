@@ -13,14 +13,14 @@
 ### Build and Deploy webapp
 
    ````
-   cd website
+   cd web
    docker-compose build
    docker tag website:latest 851966755265.dkr.ecr.eu-west-1.amazonaws.com/sumit:website
    docker push 851966755265.dkr.ecr.eu-west-1.amazonaws.com/sumit:website
-   kubectl create -f template.yml 
    ````
    ````
-    kubectl get service  
+   kubectl create -f website.yml 
+   kubectl get service  
    ````  
    Fetch the EXTERNAL-IP column from your webapp and paste that in server/promethues.yml.
 
